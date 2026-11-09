@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Editor Pseudocode IGCSE</title>
+<style>
+:root{--bg:#f4f9f6;--card:#fff;--ink:#14211d;--mut:#5b6f67;--ac:#1a8f5d;--acink:#fff;--ln:#cfe3d9;--cb:#14211d;--cf:#e8f5ee;--er:#c0392b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1714;--card:#16241f;--ink:#e8f5ee;--mut:#93aaa0;--ac:#2fc487;--acink:#0e1714;--ln:#27403a;--cb:#0a110f;--cf:#d6efe3;--er:#ff8a7a}}
+:root[data-theme="dark"]{--bg:#0e1714;--card:#16241f;--ink:#e8f5ee;--mut:#93aaa0;--ac:#2fc487;--acink:#0e1714;--ln:#27403a;--cb:#0a110f;--cf:#d6efe3;--er:#ff8a7a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Calibri,"Segoe UI",Arial,sans-serif}
+.w{max-width:1100px;margin:0 auto;padding:20px 16px 32px}
+h1{font:700 28px/1.2 Cambria,Georgia,serif;margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 16px;font-size:14px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+select,button{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid var(--ln);background:var(--card);color:var(--ink)}
+button{cursor:pointer}
+button.p{background:var(--ac);color:var(--acink);border-color:var(--ac);font-weight:700}
+.g{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+@media(max-width:800px){.g{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px}
+.card h2{font-size:14px;margin:0 0 8px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+.ed{display:flex;background:var(--cb);border-radius:8px;overflow:hidden}
+#gut,#code{font:14px/1.5 "Courier New",monospace;padding:10px 0;margin:0;height:360px}
+#gut{width:42px;text-align:right;padding-right:8px;color:#7a8f86;overflow:hidden;white-space:pre;padding-bottom:24px;user-select:none}
+#code{flex:1;border:0;outline:0;resize:none;background:transparent;color:var(--cf);padding-left:8px;white-space:pre;overflow:auto;tab-size:3}
+#inp{width:100%;height:80px;font:14px "Courier New",monospace;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--ink);padding:8px;resize:vertical}
+pre.o{margin:0;font:14px/1.5 "Courier New",monospace;background:var(--cb);color:var(--cf);border-radius:8px;padding:10px;min-height:150px;max-height:300px;overflow:auto;white-space:pre-wrap}
+details{margin-top:14px}
+summary{cursor:pointer;font-weight:700}
+.t{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}
+th,td{border:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}
+td code,pre.j{font-family:"Courier New",monospace}
+pre.j{background:var(--cb);color:var(--cf);padding:10px;border-radius:8px;overflow:auto;font-size:12px;white-space:pre-wrap;margin:8px 0 0}
+.f{color:var(--mut);font-size:13px;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>Editor Pseudocode IGCSE</h1>
+<p class="sub">Tulis pseudocode format Cambridge IGCSE, lalu jalankan langsung di browser. Program diterjemahkan ke JavaScript dan dieksekusi.</p>
+<div class="bar">
+<select id="ex" aria-label="Pilih contoh"></select>
+<button class="p" id="run">Jalankan ▶</button>
+<button id="clr">Kosongkan</button>
+<span class="sub" style="margin:0">Ctrl + Enter untuk menjalankan</span>
+</div>
+<div class="g">
+<div class="card"><h2>Pseudocode</h2><div class="ed"><pre id="gut">1</pre><textarea id="code" wrap="off" spellcheck="false" aria-label="Editor pseudocode"></textarea></div></div>
+<div>
+<div class="card" style="margin-bottom:14px"><h2>Masukan (satu nilai per baris)</h2><textarea id="inp" spellcheck="false" aria-label="Masukan"></textarea></div>
+<div class="card"><h2>Keluaran</h2><pre class="o" id="out" aria-live="polite">Tekan Jalankan untuk melihat hasil.</pre></div>
+</div>
+</div>
+<details class="card"><summary>Referensi sintaks yang didukung</summary>
+<div class="t"><table>
+<tr><th>Elemen</th><th>Sintaks</th></tr>
+<tr><td>Variabel, konstanta</td><td><code>DECLARE x : INTEGER</code> &nbsp; <code>CONSTANT Pi ← 3.14</code> (tipe: INTEGER, REAL, STRING, CHAR, BOOLEAN)</td></tr>
+<tr><td>Penugasan, masukan, keluaran</td><td><code>x ← 5</code> &nbsp; <code>INPUT x</code> &nbsp; <code>OUTPUT "Hasil ", x</code> (ketik ← atau &lt;-)</td></tr>
+<tr><td>Operator</td><td><code>+ - * / ^ DIV MOD</code> &nbsp; <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code> &nbsp; <code>AND OR NOT</code> &nbsp; <code>&amp;</code></td></tr>
+<tr><td>Seleksi</td><td><code>IF … THEN … ELSE … ENDIF</code> &nbsp; <code>CASE OF … OTHERWISE … ENDCASE</code></td></tr>
+<tr><td>Iterasi</td><td><code>FOR … TO … STEP … NEXT</code> &nbsp; <code>WHILE … DO … ENDWHILE</code> &nbsp; <code>REPEAT … UNTIL</code></td></tr>
+<tr><td>Array</td><td><code>DECLARE A : ARRAY[1:5] OF INTEGER</code> &nbsp; <code>DECLARE M : ARRAY[1:3,1:3] OF REAL</code> &nbsp; <code>M[2,3] ← 1</code></td></tr>
+<tr><td>Prosedur, fungsi</td><td><code>PROCEDURE … ENDPROCEDURE</code> + <code>CALL</code> &nbsp; <code>FUNCTION … RETURNS … RETURN … ENDFUNCTION</code></td></tr>
+<tr><td>Fungsi bawaan</td><td><code>LENGTH UCASE LCASE SUBSTRING(s, awal, panjang) ROUND(x, n) RANDOM() INT(x)</code></td></tr>
+<tr><td>Belum didukung</td><td>Operasi berkas (OPENFILE, READFILE, dll.) dan pemeriksaan tipe data</td></tr>
+</table></div></details>
+<details class="card"><summary>Lihat kode JavaScript hasil terjemahan</summary><pre class="j" id="js">(jalankan program terlebih dahulu)</pre></details>
+<p class="f">Martin Bernard, M.Pd. · IKIP Siliwangi</p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const EX={
+"Genap atau ganjil":["DECLARE x : INTEGER\nINPUT x\nIF x MOD 2 = 0 THEN\n   OUTPUT x, \" genap\"\nELSE\n   OUTPUT x, \" ganjil\"\nENDIF","7"],
+"Faktorial (fungsi)":["FUNCTION Faktorial(n : INTEGER) RETURNS INTEGER\n   DECLARE hasil : INTEGER\n   hasil ← 1\n   FOR i ← 2 TO n\n      hasil ← hasil * i\n   NEXT i\n   RETURN hasil\nENDFUNCTION\n\nDECLARE n : INTEGER\nINPUT n\nOUTPUT n, \"! = \", Faktorial(n)","5"],
+"FPB dengan Euclid":["DECLARE a : INTEGER\nDECLARE b : INTEGER\nDECLARE sisa : INTEGER\nINPUT a\nINPUT b\nWHILE b <> 0 DO\n   sisa ← a MOD b\n   a ← b\n   b ← sisa\nENDWHILE\nOUTPUT \"FPB = \", a","48\n18"],
+"Rata-rata (array)":["DECLARE Skor : ARRAY[1:5] OF INTEGER\nDECLARE Total : INTEGER\nTotal ← 0\nFOR i ← 1 TO 5\n   INPUT Skor[i]\n   Total ← Total + Skor[i]\nNEXT i\nOUTPUT \"Rata-rata = \", Total / 5","80\n75\n90\n60\n85"],
+"Nama hari (CASE)":["DECLARE hari : INTEGER\nINPUT hari\nCASE OF hari\n   1 : OUTPUT \"Senin\"\n   2 : OUTPUT \"Selasa\"\n   3 : OUTPUT \"Rabu\"\n   OTHERWISE OUTPUT \"Hari lain\"\nENDCASE","2"]
+};
+const DEF=t=>/^(INTEGER|REAL)$/.test(t)?0:t==="BOOLEAN"?false:"";
+const mk=(d,t)=>{const a=[];for(let i=0;i<=d[0];i++)a.push(d.length>1?mk(d.slice(1),t):DEF(t));return a};
+const H={LENGTH:s=>String(s).length,UCASE:s=>String(s).toUpperCase(),LCASE:s=>String(s).toLowerCase(),
+SUBSTRING:(s,a,n)=>String(s).slice(a-1,a-1+n),ROUND:(x,n)=>+(+x).toFixed(n),RANDOM:()=>Math.random(),INT:x=>Math.trunc(x)};
+const sp=(s,f)=>s.split(/("[^"]*")/).map((p,i)=>i%2?p:f(p)).join("");
+function ex(s){return sp(s,p=>{
+for(let k=0;k<4;k++)p=p.replace(/(\w+|\([^()]*\))\s+DIV\s+(\w+|\([^()]*\))/g,"Math.trunc($1/$2)");
+return p.replace(/<>/g,"!==").replace(/(?<![<>!=])=(?!=)/g,"===").replace(/(?<!&)&(?!&)/g,"+")
+.replace(/\bAND\b/g,"&&").replace(/\bOR\b/g,"||").replace(/\bNOT\b/g,"!").replace(/\bMOD\b/g,"%")
+.replace(/\bTRUE\b/g,"true").replace(/\bFALSE\b/g,"false").replace(/\^/g,"**")
+.replace(/\[([^\[\],]+),([^\[\]]+)\]/g,"[$1][$2]");});}
+function compile(src){
+const hoist=new Set();let inFn=false,inCase=false;
+const G='if(++__g>3e6)throw new Error("Perulangan terlalu panjang (mungkin tak berhingga)");';
+const hb=t=>hoist.add(t.match(/^\w+/)[0]);
+function one(l,n){
+const p=`__L=${n};`;let M,c;const m=r=>(M=l.match(r));
+if(m(/^DECLARE\s+(\w+)\s*:\s*ARRAY\s*\[\s*\d+\s*:\s*(\d+)\s*(?:,\s*\d+\s*:\s*(\d+)\s*)?\]\s*OF\s+(\w+)/))
+c=`${inFn?"let":"var"} ${M[1]}=MKARR([${M[2]}${M[3]?","+M[3]:""}],"${M[4]}");`;
+else if(m(/^DECLARE\s+([\w\s,]+?)\s*:\s*(\w+)$/))
+c=M[1].split(",").map(x=>`${inFn?"let":"var"} ${x.trim()}=DEF("${M[2]}");`).join("");
+else if(m(/^CONSTANT\s+(\w+)\s*(?:←|<-|=)\s*(.+)$/))c=`const ${M[1]}=${ex(M[2])};`;
+else if(m(/^INPUT\s+(.+)$/)){hb(M[1]);c=`${ex(M[1])}=IN("${M[1].replace(/"/g,"")}");`}
+else if(m(/^OUTPUT\s+(.+)$/))c=`OUT(${ex(M[1])});`;
+else if(m(/^IF\s+(.+?)\s+THEN$/))c=`if(${ex(M[1])}){`;
+else if(l==="ELSE")c="}else{";
+else if(/^(ENDIF|ENDWHILE|NEXT(\s+\w+)?)$/.test(l))c="}";
+else if(/^END(PROCEDURE|FUNCTION)$/.test(l)){inFn=false;c="}"}
+else if(m(/^CASE\s+OF\s+(.+)$/)){inCase=true;c=`switch(${ex(M[1])}){`}
+else if(l==="ENDCASE"){inCase=false;c="}"}
+else if(inCase&&m(/^OTHERWISE\s+(.+)$/))c=`default:${one(M[1],n)}break;`;
+else if(inCase&&m(/^("[^"]*"|'[^']*'|[^:]+?)\s*:\s*(.+)$/))c=`case ${ex(M[1])}:${one(M[2],n)}break;`;
+else if(m(/^FOR\s+(\w+)\s*(?:←|<-)\s*(.+?)\s+TO\s+(.+?)(?:\s+STEP\s+(.+))?$/)){
+const v=M[1],s=M[4]?ex(M[4]):"1";if(!inFn)hoist.add(v);
+c=`for(${inFn?"let ":""}${v}=${ex(M[2])};(${s})>0?${v}<=${ex(M[3])}:${v}>=${ex(M[3])};${v}+=${s}){${G}`}
+else if(m(/^WHILE\s+(.+?)\s+DO$/))c=`while(${ex(M[1])}){${G}`;
+else if(l==="REPEAT")c=`do{${G}`;
+else if(m(/^UNTIL\s+(.+)$/))c=`}while(!(${ex(M[1])}));`;
+else if(m(/^(?:PROCEDURE|FUNCTION)\s+(\w+)\s*(?:\((.*)\))?(?:\s+RETURNS\s+\w+)?$/)){
+const ps=(M[2]||"").split(",").map(x=>x.split(":")[0].replace(/BYREF|BYVAL/g,"").trim()).filter(Boolean);
+inFn=true;c=`function ${M[1]}(${ps.join(",")}){`}
+else if(m(/^CALL\s+(\w+)\s*(\(.*\))?$/))c=`${M[1]}${M[2]?ex(M[2]):"()"};`;
+else if(m(/^RETURN\s+(.+)$/))c=`return ${ex(M[1])};`;
+else if(m(/^(.+?)\s*(?:←|<-)\s*(.+)$/)){hb(M[1]);c=`${ex(M[1])}=${ex(M[2])};`}
+else throw new Error(`Baris ${n}: perintah tidak dikenali -> ${l}`);
+return /^(\}|case|default)/.test(c)?c:p+c;}
+const body=src.split("\n").map((r,i)=>[r.replace(/^((?:[^"\/]|"[^"]*"|\/(?!\/))*)\/\/.*$/,"$1").trim(),i+1]).filter(x=>x[0]).map(([l,n])=>one(l,n));
+return `var __L=0,__g=0;${[...hoist].map(x=>`var ${x};`).join("")}try{${body.join("\n")}}catch(e){ERR(e,__L)}`;}
+function run(){
+const q=$("inp").value.split("\n").filter(x=>x.trim()!=="");const buf=[];$("js").textContent="";
+try{
+const js=compile($("code").value);$("js").textContent=js;
+const OUT=(...a)=>{buf.push(a.map(v=>v===true?"TRUE":v===false?"FALSE":String(v)).join(""));if(buf.length>5000)throw new Error("Keluaran terlalu banyak")};
+const IN=n=>{if(!q.length)throw new Error("Masukan untuk "+n+" belum diisi (satu nilai per baris)");const v=q.shift().trim();return /^-?\d+(\.\d+)?$/.test(v)?+v:v};
+const ERR=(e,l)=>buf.push("\nKesalahan (baris "+l+"): "+e.message);
+new Function("OUT","IN","ERR","DEF","MKARR",...Object.keys(H),js)(OUT,IN,ERR,DEF,mk,...Object.values(H));
+}catch(e){buf.push("\nKesalahan: "+e.message)}
+$("out").textContent=buf.join("\n")||"(tidak ada keluaran)";}
+const ta=$("code"),gu=$("gut");
+const nums=()=>{gu.textContent=Array.from({length:ta.value.split("\n").length},(_,i)=>i+1).join("\n")};
+function load(k){ta.value=EX[k][0];$("inp").value=EX[k][1];nums();$("out").textContent="Tekan Jalankan untuk melihat hasil."}
+ta.addEventListener("input",nums);
+ta.addEventListener("scroll",()=>{gu.scrollTop=ta.scrollTop});
+ta.addEventListener("keydown",e=>{
+if(e.key==="Tab"){e.preventDefault();ta.setRangeText("   ",ta.selectionStart,ta.selectionEnd,"end");nums()}
+if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();run()}});
+Object.keys(EX).forEach(k=>{const o=document.createElement("option");o.textContent=k;$("ex").appendChild(o)});
+$("ex").onchange=e=>load(e.target.value);
+$("run").onclick=run;
+$("clr").onclick=()=>{ta.value="";$("inp").value="";nums();$("out").textContent=""};
+load(Object.keys(EX)[0]);
+</script>
+</body>
+</html>
