@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5 Soal Studi Kasus Pseudocode</title>
+<style>
+:root{--bg:#f4f9f6;--card:#fff;--ink:#14211d;--mut:#5b6f67;--ac:#1a8f5d;--acink:#fff;--ln:#cfe3d9;--tint:#e8f5ee;--cb:#14211d;--cf:#e8f5ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1714;--card:#16241f;--ink:#e8f5ee;--mut:#93aaa0;--ac:#2fc487;--acink:#0e1714;--ln:#27403a;--tint:#1d3029;--cb:#0a110f;--cf:#d6efe3}}
+:root[data-theme="dark"]{--bg:#0e1714;--card:#16241f;--ink:#e8f5ee;--mut:#93aaa0;--ac:#2fc487;--acink:#0e1714;--ln:#27403a;--tint:#1d3029;--cb:#0a110f;--cf:#d6efe3}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Calibri,"Segoe UI",Arial,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:24px 16px 40px}
+h1{font:700 30px/1.2 Cambria,Georgia,serif;margin:0 0 6px}
+.sub{color:var(--mut);margin:0 0 22px;font-size:15px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:20px 22px;margin-bottom:20px;break-inside:avoid}
+.hd{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.no{flex:none;width:40px;height:40px;border-radius:50%;background:var(--ac);color:var(--acink);display:grid;place-items:center;font:700 18px Cambria,Georgia,serif}
+h2{font:700 22px/1.25 Cambria,Georgia,serif;margin:0}
+.tg{font-size:13px;color:var(--mut)}
+h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:16px 0 4px}
+p{margin:8px 0}
+ol{margin:6px 0 0;padding-left:24px}
+li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0}
+th,td{border:1px solid var(--ln);padding:5px 10px;text-align:left}
+th{background:var(--tint)}
+.io{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.io{grid-template-columns:1fr}}
+pre{margin:0;background:var(--cb);color:var(--cf);border-radius:8px;padding:10px 12px;font:14px/1.5 "Courier New",monospace;overflow-x:auto}
+.f{color:var(--mut);font-size:13px;margin-top:8px}
+@media print{:root{--bg:#fff;--card:#fff;--ink:#000;--cb:#f2f2f2;--cf:#000;--ln:#999;--tint:#eee}.card{border-radius:0;page-break-inside:avoid}.no{background:#000;color:#fff}}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>5 Soal Studi Kasus Pseudocode</h1>
+<p class="sub">Level menengah, format Cambridge IGCSE. Tulis pseudocode lengkap untuk tiap kasus dan uji dengan contoh masukan dan keluaran yang tersedia.</p>
+
+<section class="card">
+<div class="hd"><div class="no">1</div><div><h2>Kasir Warung Bu Sari</h2><div class="tg">ARRAY · Perulangan · Seleksi</div></div></div>
+<p>Bu Sari memiliki warung kelontong yang ramai di akhir pekan. Selama ini ia mencatat stok dan penjualan di buku tulis, sehingga sering terjadi barang terjual padahal stoknya sudah habis. Anaknya, yang kuliah di jurusan pendidikan matematika, menawarkan diri membuat program kasir sederhana.</p>
+<p>Data lima barang sudah tersimpan di program (nomor, nama, harga, stok awal). Kasir memasukkan transaksi satu per satu berupa nomor barang dan jumlah yang dibeli, dan berhenti ketika nomor barang yang dimasukkan adalah 0. Jika stok tidak mencukupi, transaksi ditolak seluruhnya dan stok tidak berubah.</p>
+<table><tr><th>No</th><th>Barang</th><th>Harga</th><th>Stok awal</th></tr>
+<tr><td>1</td><td>Beras (kg)</td><td>Rp12.000</td><td>20</td></tr>
+<tr><td>2</td><td>Minyak (liter)</td><td>Rp15.000</td><td>10</td></tr>
+<tr><td>3</td><td>Gula (kg)</td><td>Rp14.000</td><td>8</td></tr>
+<tr><td>4</td><td>Telur (kg)</td><td>Rp28.000</td><td>6</td></tr>
+<tr><td>5</td><td>Kopi (sachet)</td><td>Rp5.000</td><td>30</td></tr></table>
+<h3>Yang harus Anda kerjakan</h3>
+<ol><li>Simpan nama, harga, stok, dan jumlah terjual dalam ARRAY.</li>
+<li>Proses transaksi dengan perulangan sampai kode 0, tolak transaksi yang stoknya kurang.</li>
+<li>Setelah selesai, tampilkan omzet, jumlah transaksi ditolak, barang terlaris (berdasarkan jumlah terjual), dan daftar barang yang perlu restock (stok akhir kurang dari 5).</li></ol>
+<div class="io"><div><h3>Contoh masukan</h3><pre>1 5
+4 4
+3 3
+4 3
+2 2
+3 6
+0</pre></div><div><h3>Contoh keluaran</h3><pre>Omzet: Rp244.000
+Transaksi ditolak: 2
+Barang terlaris: Beras (5)
+Perlu restock: Telur</pre></div></div>
+</section>
+
+<section class="card">
+<div class="hd"><div class="no">2</div><div><h2>Lomba Lari 17 Agustus</h2><div class="tg">ARRAY · Pengurutan · Statistik</div></div></div>
+<p>Panitia peringatan Hari Kemerdekaan di sebuah RW mengadakan lomba lari 400 meter. Enam peserta mengikuti perlombaan dan waktu tempuh tiap peserta dicatat dalam satuan detik oleh petugas stopwatch. Karena pencatatan dilakukan secara manual, data masuk tidak berurutan.</p>
+<p>Ketua panitia ingin papan peringkat yang rapi untuk diumumkan. Peserta yang waktunya tidak lebih lambat dari rata-rata waktu seluruh peserta berhak maju ke babak final tingkat kelurahan. Ia juga ingin tahu seberapa ketat persaingan juara satu dan juara dua.</p>
+<h3>Yang harus Anda kerjakan</h3>
+<ol><li>Simpan nama dan waktu dalam dua ARRAY yang berpasangan.</li>
+<li>Urutkan dari waktu tercepat dengan bubble sort. Saat dua waktu bertukar, nama pesertanya harus ikut bertukar.</li>
+<li>Tampilkan peringkat, rata-rata waktu, banyak peserta yang lolos ke final, dan selisih waktu juara 1 dan juara 2.</li></ol>
+<div class="io"><div><h3>Contoh masukan</h3><pre>Andi 62
+Budi 58
+Citra 65
+Dewi 60
+Eko 71
+Fani 59</pre></div><div><h3>Contoh keluaran</h3><pre>1. Budi 58
+2. Fani 59
+3. Dewi 60
+4. Andi 62
+5. Citra 65
+6. Eko 71
+Rata-rata: 62.5 detik
+Lolos final: 4 peserta
+Selisih juara 1 dan 2: 1 detik</pre></div></div>
+</section>
+
+<section class="card">
+<div class="hd"><div class="no">3</div><div><h2>Jadwal Minum Obat Pak Dedi</h2><div class="tg">DIV dan MOD · Perulangan · Pembulatan</div></div></div>
+<p>Pak Dedi baru keluar dari klinik dengan resep antibiotik. Dokter berpesan agar obat diminum dengan jarak waktu yang sama sepanjang hari, tidak boleh terlewat satu dosis pun, dan dihabiskan sesuai jumlah dosis yang ditentukan. Karena sering lupa, Pak Dedi minta anaknya membuatkan program pengingat jadwal.</p>
+<p>Dosis pertama diminum pada jam tertentu di hari pertama. Dosis berikutnya menyusul setiap sekian jam, sehingga pada dosis tertentu waktunya sudah berpindah ke hari berikutnya. Selain jadwal, apotek juga perlu tahu berapa strip obat yang harus disiapkan. Satu dosis berisi 2 tablet, satu strip berisi 10 tablet, dan strip tidak dijual eceran.</p>
+<h3>Yang harus Anda kerjakan</h3>
+<ol><li>Baca jam dosis pertama (0–23), selang waktu antar dosis (jam), dan jumlah dosis.</li>
+<li>Cetak jadwal tiap dosis berupa hari ke berapa dan jam berapa (format JJ:00), dengan angka nol di depan jika jam kurang dari 10.</li>
+<li>Hitung jumlah tablet, jumlah strip yang harus dibeli (dibulatkan ke atas), dan total biaya jika harga satu strip Rp8.500.</li></ol>
+<div class="io"><div><h3>Contoh masukan</h3><pre>6
+8
+7</pre></div><div><h3>Contoh keluaran</h3><pre>Dosis 1: hari 1, 06:00
+Dosis 2: hari 1, 14:00
+Dosis 3: hari 1, 22:00
+Dosis 4: hari 2, 06:00
+Dosis 5: hari 2, 14:00
+Dosis 6: hari 2, 22:00
+Dosis 7: hari 3, 06:00
+Tablet: 14
+Strip: 2
+Biaya: Rp17.000</pre></div></div>
+</section>
+
+<section class="card">
+<div class="hd"><div class="no">4</div><div><h2>Denda Perpustakaan Kampus</h2><div class="tg">FUNCTION · Seleksi · Perulangan</div></div></div>
+<p>Perpustakaan sebuah kampus menerapkan aturan peminjaman baru. Setiap buku boleh dipinjam paling lama 7 hari. Melewati batas itu, mahasiswa dikenai denda yang makin berat: Rp500 per hari untuk 3 hari pertama keterlambatan, lalu Rp1.000 per hari mulai hari keempat dan seterusnya. Agar tidak memberatkan, denda satu buku tidak boleh melebihi 50% dari harga buku tersebut.</p>
+<p>Tanggal pada sistem lama direkam sebagai nomor hari dalam satu semester, sehingga lama pinjam diperoleh dari selisih nomor hari. Seorang mahasiswa yang terlambat mengembalikan tiga buku atau lebih, atau total dendanya melebihi Rp20.000, akan ditangguhkan hak meminjamnya.</p>
+<h3>Yang harus Anda kerjakan</h3>
+<ol><li>Buat FUNCTION Denda(telat, harga) RETURNS INTEGER yang menerapkan tarif bertingkat dan batas 50%.</li>
+<li>Baca data 4 buku (harga, hari pinjam, hari kembali), lalu hitung keterlambatan dan denda tiap buku.</li>
+<li>Tampilkan rincian per buku, total denda, banyak buku terlambat, dan status keanggotaan.</li></ol>
+<div class="io"><div><h3>Contoh masukan</h3><pre>80000 10 20
+20000 5 12
+30000 8 30
+12000 3 25</pre></div><div><h3>Contoh keluaran</h3><pre>Buku 1: telat 3 hari, Rp1.500
+Buku 2: telat 0 hari, Rp0
+Buku 3: telat 15 hari, Rp13.500
+Buku 4: telat 15 hari, Rp6.000
+Total denda: Rp21.000
+Buku terlambat: 3
+Status: peminjaman ditangguhkan</pre></div></div>
+</section>
+
+<section class="card">
+<div class="hd"><div class="no">5</div><div><h2>Pemesanan Kursi Bioskop</h2><div class="tg">ARRAY 2D · FUNCTION · Perulangan bersarang</div></div></div>
+<p>Sebuah bioskop kecil memiliki satu studio dengan 4 baris kursi, masing-masing 6 kursi. Denah studio disimpan sebagai tabel angka: 0 berarti kursi kosong dan 1 berarti sudah terisi. Penonton biasanya datang berombongan dan ingin duduk berdampingan dalam satu baris.</p>
+<p>Setiap permintaan berisi banyaknya kursi yang dibutuhkan. Sistem mencari baris pertama, dari baris 1 ke bawah, yang memiliki cukup kursi kosong berurutan, dan memilih deretan paling kiri pada baris itu. Kursi yang dipilih langsung ditandai terisi sehingga permintaan berikutnya tidak bisa memakainya. Jika tidak ada deretan yang cukup, permintaan ditolak dan denah tidak berubah.</p>
+<table><tr><th>Denah awal</th><th>K1</th><th>K2</th><th>K3</th><th>K4</th><th>K5</th><th>K6</th></tr>
+<tr><td>Baris 1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>Baris 2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>Baris 3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>Baris 4</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></table>
+<h3>Yang harus Anda kerjakan</h3>
+<ol><li>Simpan denah dalam ARRAY dua dimensi bertipe INTEGER.</li>
+<li>Buat FUNCTION yang mencari kolom awal deretan kosong sepanjang n pada satu baris, dan mengembalikan 0 jika tidak ada.</li>
+<li>Baca banyak permintaan, proses satu per satu, dan tampilkan hasil tiap permintaan.</li>
+<li>Cetak denah akhir dan persentase kursi terisi (satu angka di belakang koma).</li></ol>
+<div class="io"><div><h3>Contoh masukan</h3><pre>3
+3
+4
+5</pre></div><div><h3>Contoh keluaran</h3><pre>Baris 2, kolom 1-3
+Baris 3, kolom 2-5
+Tidak tersedia
+1 1 0 0 1 0
+1 1 1 1 0 0
+1 1 1 1 1 1
+0 1 0 0 0 0
+Terisi: 58.3%</pre></div></div>
+</section>
+
+<p class="f">Martin Bernard, M.Pd. · IKIP Siliwangi</p>
+</div>
+</body>
+</html>
