@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>20 Soal Cerita Pseudocode untuk SMP</title>
+<style>
+:root{--bg:#f4f9f6;--card:#fff;--ink:#14211d;--mut:#5b6f67;--ac:#1a8f5d;--acink:#fff;--ln:#cfe3d9;--tint:#e8f5ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1714;--card:#16241f;--ink:#e8f5ee;--mut:#93aaa0;--ac:#2fc487;--acink:#0e1714;--ln:#27403a;--tint:#1d3029}}
+:root[data-theme="dark"]{--bg:#0e1714;--card:#16241f;--ink:#e8f5ee;--mut:#93aaa0;--ac:#2fc487;--acink:#0e1714;--ln:#27403a;--tint:#1d3029}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Calibri,"Segoe UI",Arial,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:20px 16px 36px}
+h1{font:700 28px/1.2 Cambria,Georgia,serif;margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 14px;font-size:15px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.chip{font:inherit;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--ln);background:var(--card);color:var(--ink);cursor:pointer}
+.chip.on{background:var(--ac);color:var(--acink);border-color:var(--ac);font-weight:700}
+#cnt{margin-left:auto;font-weight:700;color:var(--ac)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.card.done{opacity:.6}
+.hd{display:flex;gap:10px;align-items:flex-start}
+.no{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ac);color:var(--acink);display:grid;place-items:center;font-weight:700}
+h2{font:700 19px/1.3 Cambria,Georgia,serif;margin:0}
+.tg{font-size:12px;color:var(--mut);margin-top:2px}
+p{margin:10px 0}
+.kv{display:grid;grid-template-columns:90px 1fr;gap:4px 10px;font-size:15px;background:var(--tint);border-radius:8px;padding:10px 12px}
+.kv b{color:var(--mut)}
+details{margin-top:10px;font-size:15px}
+summary{cursor:pointer;font-weight:700;color:var(--ac)}
+label{display:inline-flex;gap:6px;align-items:center;margin-top:10px;font-size:14px;cursor:pointer}
+.f{color:var(--mut);font-size:13px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>20 Soal Cerita Pseudocode</h1>
+<p class="sub">Untuk siswa SMP, dari yang paling mudah sampai yang paling menantang. Tulis pseudocode-nya, lalu cocokkan dengan contoh masukan dan keluaran.</p>
+<div class="bar" id="bar"></div>
+<div id="list"></div>
+<p class="f">Martin Bernard, M.Pd. · IKIP Siliwangi</p>
+</div>
+<script>
+const Q=[
+{t:"Kebun Pak Tani",k:"Dasar",s:"Pak Tani punya kebun berbentuk persegi panjang dan ingin memasang pagar di sekelilingnya. Bantu Pak Tani menghitung luas kebun dan panjang pagar yang dibutuhkan.",i:"Panjang dan lebar kebun (meter)",o:"Luas dan keliling",c:"12 dan 8 → Luas 96, Keliling 40",h:"Gunakan INPUT untuk panjang dan lebar. Luas = panjang * lebar, keliling = 2 * (panjang + lebar). Cetak dengan OUTPUT."},
+{t:"Tabungan Rina",k:"Dasar",s:"Setiap hari Rina diberi uang saku, tetapi ia hanya jajan sebagian. Sisa uang saku ia masukkan ke celengan. Berapa uang yang terkumpul setelah beberapa hari?",i:"Uang saku per hari, jajan per hari, banyak hari",o:"Uang di celengan",c:"12000, 8000, dan 5 → Rp20000",h:"Sisa per hari = uang saku - jajan. Kalikan dengan banyak hari."},
+{t:"Suhu Kota Bandung",k:"Dasar",s:"Seorang turis dari luar negeri terbiasa dengan satuan Fahrenheit. Bantu ia mengubah suhu Bandung dari Celsius menjadi Fahrenheit dengan rumus F = C × 9/5 + 32.",i:"Suhu dalam Celsius",o:"Suhu dalam Fahrenheit",c:"30 → 86",h:"Tulis rumusnya dengan tanda * dan /. Gunakan tipe REAL untuk menyimpan hasilnya."},
+{t:"Diskon Toko Buku",k:"Dasar",s:"Toko buku sekolah sedang mengadakan obral. Harga buku dipotong sekian persen. Berapa yang harus dibayar Dika?",i:"Harga buku, persen diskon",o:"Harga setelah diskon",c:"50000 dan 20 → 40000",h:"Potongan = harga * persen / 100. Harga akhir = harga - potongan."},
+{t:"Nomor Undian",k:"Percabangan",s:"Pada acara pentas seni, setiap penonton mendapat nomor undian. Nomor genap mendapat hadiah buku, nomor ganjil mendapat hadiah pulpen. Tentukan hadiah untuk sebuah nomor.",i:"Nomor undian",o:"Buku atau Pulpen",c:"14 → Buku; 7 → Pulpen",h:"Bilangan genap bersisa 0 jika dibagi 2: IF nomor MOD 2 = 0 THEN … ELSE … ENDIF."},
+{t:"Predikat Nilai",k:"Percabangan",s:"Bu Guru memberi predikat pada nilai ulangan: A untuk nilai 90 ke atas, B untuk 80 sampai 89, C untuk 70 sampai 79, dan D untuk nilai di bawah 70.",i:"Nilai ulangan",o:"Predikat",c:"82 → B",h:"Pakai IF bersarang. Periksa dari batas terbesar (90) lebih dulu, lalu turun."},
+{t:"Harga Tiket Bioskop",k:"Percabangan",s:"Bioskop menjual tiket sesuai usia: anak di bawah 12 tahun Rp25.000, usia 12 sampai 59 tahun Rp40.000, dan usia 60 tahun ke atas Rp30.000.",i:"Usia penonton",o:"Harga tiket",c:"15 → Rp40000",h:"Ada tiga kelompok, jadi butuh dua IF. Untuk rentang 12 sampai 59, gunakan AND."},
+{t:"Kelereng Terbanyak",k:"Percabangan",s:"Tiga sahabat, Ali, Budi, dan Cici, mengadu jumlah kelereng. Siapa yang punya kelereng paling banyak dan berapa jumlahnya?",i:"Kelereng Ali, Budi, dan Cici",o:"Jumlah kelereng terbanyak",c:"14 27 9 → 27",h:"Simpan sementara nilai terbesar dalam variabel terbesar. Mulai dengan angka pertama, bandingkan dengan dua angka lainnya."},
+{t:"Kayu untuk Segitiga",k:"Percabangan",s:"Pak Budi punya tiga batang kayu dan ingin membuat rangka segitiga. Segitiga bisa dibuat jika jumlah dua sisi mana pun lebih panjang daripada sisi ketiga.",i:"Panjang tiga batang kayu a, b, c",o:"Bisa atau Tidak bisa",c:"3 4 5 → Bisa; 1 2 5 → Tidak bisa",h:"Ada tiga syarat: a + b > c, a + c > b, dan b + c > a. Gabungkan dengan AND."},
+{t:"Tabel Perkalian",k:"Perulangan FOR",s:"Sari sedang belajar perkalian. Buat program yang menampilkan tabel perkalian sebuah bilangan dari 1 sampai 10 agar mudah dihafal.",i:"Bilangan n",o:"Sepuluh baris perkalian",c:"7 → 7 x 1 = 7, 7 x 2 = 14, …, 7 x 10 = 70",h:"FOR i ← 1 TO 10 … NEXT i. Di dalamnya cetak n, tanda x, i, tanda =, dan hasil n * i."},
+{t:"Membaca Novel",k:"Perulangan FOR",s:"Anita membaca novel dengan aturan unik: hari pertama 1 halaman, hari kedua 2 halaman, hari ketiga 3 halaman, dan seterusnya. Berapa halaman yang sudah ia baca setelah n hari?",i:"Banyak hari n",o:"Total halaman",c:"10 → 55",h:"Siapkan variabel total dengan nilai awal 0. Dalam FOR, tambahkan i ke total tiap putaran."},
+{t:"Peluncuran Roket",k:"Perulangan FOR",s:"Klub sains sekolah mensimulasikan peluncuran roket air. Ketua klub menghitung mundur dari angka tertentu sampai 1, lalu berteriak “Meluncur!”.",i:"Angka awal hitung mundur",o:"Hitung mundur lalu Meluncur!",c:"5 → 5, 4, 3, 2, 1, Meluncur!",h:"FOR dapat mundur dengan STEP -1: FOR i ← n TO 1 STEP -1."},
+{t:"Kelipatan Nomor Kursi",k:"Perulangan FOR",s:"Panitia menempelkan stiker bintang pada kursi yang nomornya kelipatan k, mulai dari kursi pertama sampai nomor batas. Tampilkan nomor kursi yang mendapat stiker dan hitung jumlahnya.",i:"Bilangan k, batas nomor kursi",o:"Nomor kelipatan dan banyaknya",c:"4 dan 30 → 4 8 12 16 20 24 28; banyaknya 7",h:"FOR i ← k TO batas STEP k. Tambahkan 1 ke penghitung tiap putaran."},
+{t:"Menabung untuk Sepeda",k:"WHILE dan REPEAT",s:"Rafi ingin membeli helm sepeda seharga tertentu. Tiap minggu ia menabung sejumlah uang yang sama. Berapa minggu yang ia butuhkan sampai tabungannya cukup?",i:"Harga helm, tabungan per minggu",o:"Banyak minggu",c:"100000 dan 15000 → 7 minggu",h:"Jumlah minggu belum diketahui, jadi pakai WHILE tabungan < harga. Di dalamnya tambahkan tabungan dan hitung minggunya."},
+{t:"Jumlah Angka Nomor Loker",k:"WHILE dan REPEAT",s:"Nomor loker di sekolah dianggap beruntung jika jumlah semua angkanya besar. Hitung jumlah digit sebuah nomor loker.",i:"Nomor loker (bilangan bulat positif)",o:"Jumlah digit",c:"2468 → 20",h:"Ambil digit terakhir dengan MOD 10, tambahkan ke jumlah, lalu buang dengan DIV 10. Ulangi dengan WHILE sampai bilangannya 0."},
+{t:"PIN Kartu Perpustakaan",k:"WHILE dan REPEAT",s:"Kartu perpustakaan digital memiliki PIN 1234. Pemilik kartu hanya diberi 3 kali kesempatan memasukkan PIN. Jika benar, tampilkan pada percobaan ke berapa ia berhasil. Jika tiga kali salah, kartu diblokir.",i:"PIN yang diketik (maksimal 3 kali)",o:"Berhasil pada percobaan ke-n, atau Kartu terblokir",c:"1111 2222 1234 → Berhasil pada percobaan ke-3",h:"Gunakan REPEAT … UNTIL dengan dua syarat berhenti: PIN benar ATAU percobaan sudah 3. Setelah itu cek mana yang terjadi."},
+{t:"Rata-rata Ulangan",k:"Array",s:"Lima siswa mengikuti ulangan matematika. Guru ingin mengetahui rata-rata nilai kelompok kecil ini.",i:"Lima nilai",o:"Rata-rata",c:"80 70 90 60 100 → 80",h:"DECLARE nilai : ARRAY[1:5] OF INTEGER. Isi dengan FOR dan INPUT nilai[i], jumlahkan, lalu bagi 5."},
+{t:"Nilai Tertinggi dan Terendah",k:"Array",s:"Dalam lomba cerdas cermat, lima regu mendapat skor akhir. Panitia ingin mengumumkan skor tertinggi dan skor terendah.",i:"Lima skor",o:"Skor tertinggi dan terendah",c:"7 8 5 9 6 → tertinggi 9, terendah 5",h:"Mulai dengan skor[1] sebagai tertinggi dan terendah. Dalam FOR dari 2 sampai 5, perbarui keduanya jika ada skor yang lebih besar atau lebih kecil."},
+{t:"Siswa yang Lulus KKM",k:"Array",s:"Wali kelas mencatat nilai ulangan IPA enam siswa. KKM mata pelajaran ini adalah 70. Ia ingin tahu berapa siswa yang tuntas dan berapa yang harus remedial.",i:"Enam nilai",o:"Banyak siswa tuntas dan remedial",c:"80 65 90 70 55 75 → tuntas 4, remedial 2",h:"Untuk tiap nilai, gunakan IF nilai[i] >= 70. Siapkan dua penghitung: tuntas dan remedial."},
+{t:"Pesanan Kantin Sekolah",k:"Array",s:"Kantin sekolah menjual 4 menu dengan harga berbeda: nomor 1 Rp5.000, nomor 2 Rp8.000, nomor 3 Rp3.000, dan nomor 4 Rp10.000. Kasir memasukkan pesanan berupa nomor menu dan jumlah porsi, dan berhenti ketika nomor menu yang dimasukkan adalah 0. Hitung total yang harus dibayar.",i:"Pasangan nomor menu dan jumlah, diakhiri 0",o:"Total bayar",c:"2 2 / 3 3 / 1 1 / 0 → Rp30000",h:"Simpan harga dalam ARRAY[1:4]. Gunakan REPEAT … UNTIL nomor = 0, dan total ← total + harga[nomor] * jumlah."}
+];
+const TOP=["Semua","Dasar","Percabangan","Perulangan FOR","WHILE dan REPEAT","Array"];
+let cur="Semua",done=new Set();
+const e=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function draw(){
+const bar=document.getElementById("bar");bar.innerHTML="";
+TOP.forEach(x=>{const b=document.createElement("button");b.className="chip"+(x===cur?" on":"");b.textContent=x;b.onclick=()=>{cur=x;draw()};bar.appendChild(b)});
+const c=document.createElement("span");c.id="cnt";c.textContent="Selesai "+done.size+" / "+Q.length;bar.appendChild(c);
+const L=document.getElementById("list");L.innerHTML="";
+Q.forEach((q,n)=>{if(cur!=="Semua"&&q.k!==cur)return;
+const d=document.createElement("div");d.className="card"+(done.has(n)?" done":"");
+d.innerHTML=`<div class="hd"><div class="no">${n+1}</div><div><h2>${e(q.t)}</h2><div class="tg">${q.k}</div></div></div><p>${e(q.s)}</p><div class="kv"><b>Masukan</b><span>${e(q.i)}</span><b>Keluaran</b><span>${e(q.o)}</span><b>Contoh</b><span>${e(q.c)}</span></div><details><summary>Petunjuk</summary><p>${e(q.h)}</p></details><label><input type="checkbox" ${done.has(n)?"checked":""}> Sudah selesai</label>`;
+d.querySelector("input").onchange=ev=>{ev.target.checked?done.add(n):done.delete(n);draw()};
+L.appendChild(d)});}
+draw();
+</script>
+</body>
+</html>
